@@ -5,7 +5,7 @@ import { GetServerSideProps } from 'next';
 interface Movie {
    _id: string;
    title: string;
-   metacritic: number;
+   year: number;
    plot: string;
 }
 
@@ -17,16 +17,16 @@ interface MoviesProps {
 
 const Movies: React.FC<MoviesProps> = ({ movies }) => {
    return (
-       <div>
-           <h1>Top 20 Movies of All Time</h1>
-           <p>
+       <div className="px-10 py-5">
+           <h1 className="text-[30px] font-bold underline">Top 20 Movies of All Time</h1>
+           <p className="mb-[30px]">
                <small>(According to Metacritic)</small>
            </p>
            <ul>
                {movies.map((movie) => (
-                   <li key={movie._id}>
+                   <li key={movie._id} className="list-disc">
                        <h2>{movie.title}</h2>
-                       <h3>{movie.metacritic}</h3>
+                       <h3>{movie.year}</h3>
                        <p>{movie.plot}</p>
                    </li>
                ))}
